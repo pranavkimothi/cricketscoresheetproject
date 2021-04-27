@@ -1,0 +1,287 @@
+// MY 2nd PROJECT WITH MYCAPTAIN (AVIRAL SIR)
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <windows.h>
+#include <dos.h>
+#include <conio.h>
+
+void sound()
+{
+    Beep(2000,1100);Beep(2000,1100);Beep(2000,1100);printf("\n\t\t\t\t\t    Servers are active");Beep(1500,1100);Beep(1500,1100);printf("\n\t\t\t\t       Searching for nearby servers");Beep(2500,1100);Beep(2500,1100);printf("\n\t\t\t\t\t   Connected to server");
+    return;
+}
+
+void sound1()
+{
+    Beep(2000,1100);Beep(2000,1100);Beep(2000,1100);printf("\n\t\t\t\t\t    Searching for file");Beep(1500,1100);Beep(1500,1100);printf("\n\t\t\t\t       Scanning file for viruses");Beep(2500,1100);Beep(2500,1100);
+    return;
+}
+
+void newscoresheet()
+{
+    FILE *fp;
+    char filename[20];
+    system("cls");
+    system("color ED");
+    printf("\t\t\t\t\tWELCOME TO NEW SCORESHEET MANAGEMENT SYSTEM.");
+    printf("\nEnter the file name you want with extension(Choose file name wisely, previous data may get overwritten): ");
+    scanf("%s",filename);
+
+    fp=fopen(filename,"r");
+    if(fp!=NULL)
+        {
+            printf("\nFile name already exist.Please try again");fclose(fp);
+            return;
+        }
+    else
+    {
+
+    fclose(fp);
+    fp=fopen(filename,"w");
+
+    //MATCH FORMAT
+    printf("Enter the Match Format: ");
+    char format[100];
+    scanf("%s",format);
+    char a[20]="Game format is ";
+    strcat(a,format);
+    fputs(a, fp);
+
+    //MATCH DATE
+    printf("Enter the Match Date: ");
+    char date[100];
+    scanf("%s",date);
+    char b[20]="\nGame was held on ";
+    strcat(b,date);
+    fputs(b, fp);
+
+    //MATCH TEAMS
+    printf("Enter Team 1: ");
+    char team1[100];
+    scanf("%s",team1);
+    printf("Enter Team 2: ");
+    char team2[100];
+    scanf("%s",team2);
+    char c[20]="\nGame was between ";
+    strcat(c,team1);
+    strcat(c," v/s ");
+    strcat(c,team2);
+    fputs(c, fp);
+
+    //MATCH STADIUM
+    printf("Enter Stadium name 1: ");
+    char stadium[100];
+    scanf("%s",stadium);
+    char d[20]="\nGame was held in ";
+    strcat(d,stadium);
+    strcat(d," stadium ");
+    fputs(d, fp);
+
+    //RUNS SCORED
+    int loop;
+    printf("\nFor team 1\n\n");
+    fputs("\nFOR TEAM 1...",fp);
+    for(loop=1;loop<=11;loop++)
+    {
+        printf("Enter name of PLayer %d  : ",loop);
+        char player[10];
+        scanf("%s",player);
+        printf("enter runs scored by player %d: ",loop);
+        char runs[10];
+        scanf("%s",runs);
+
+        char e[100*loop];
+        strcat(e,"\n");
+        strcat(e,player);
+        strcat(e," scored ");
+        strcat(e,runs);
+        strcat(e," runs.");
+
+        fputs(e,fp);
+
+    }
+     printf("\nFor team 2\n\n");
+     fputs("\nFOR TEAM 2",fp);
+    for(loop=1;loop<=11;loop++)
+    {
+        printf("Enter name of player %d  : ",loop);
+        char player[10];
+        scanf("%s",player);
+        printf("enter runs scored by player %d: ",loop);
+        char runs[10];
+        scanf("%s",runs);
+
+        char e[100*loop];
+        strcat(e,"\n");
+        strcat(e,player);
+        strcat(e," scored ");
+        strcat(e,runs);
+        strcat(e," runs.");
+
+        fputs(e,fp);
+
+    }
+
+    //BOWLING FIGURES
+    int loop1,nob;
+    printf("\nFor team 1\n");
+    fputs("\nFOR TEAM 1",fp);
+    printf("\nHow many players did bowling? ");
+    scanf("%d",&nob);
+    for(loop1=1;loop1<=nob;loop1++)
+    {
+        printf("Enter name of Bowler %d: ",loop1);
+        char bowler[10];
+        scanf("%s",bowler);
+        printf("Enter overs bowled by player %d: ",loop1);
+        char overs[10];
+        scanf("%s",overs);
+        printf("Enter number of runs given by player %d: ",loop1);
+        char nor[10];
+        scanf("%s",nor);
+        printf("Enter number of wickets taken by player %d: ",loop1);
+        char now[10];
+        scanf("%s",now);
+
+
+        char f[100*loop1];
+        strcat(f,"\n");
+        strcat(f,bowler);
+        strcat(f," bowled ");
+        strcat(f,overs);
+        strcat(f," overs and gave ");
+        strcat(f,nor);
+        strcat(f," runs taking ");
+        strcat(f,now);
+        strcat(f," wickets.");
+        fputs(f,fp);
+
+    }
+
+    printf("\nFor team 2\n");
+    fputs("\nFOR TEAM 2",fp);
+    printf("\nHow many players did bowling? ");
+    scanf("%d",&nob);
+    for(loop1=1;loop1<=nob;loop1++)
+    {
+        printf("Enter name of Bowler %d: ",loop1);
+        char bowler[10];
+        scanf("%s",bowler);
+        printf("Enter overs bowled by player %d: ",loop1);
+        char overs[10];
+        scanf("%s",overs);
+        printf("Enter number of runs given by player %d: ",loop1);
+        char nor[10];
+        scanf("%s",nor);
+        printf("Enter number of wickets taken by player %d: ",loop1);
+        char now[10];
+        scanf("%s",now);
+
+
+        char f[100*loop1];
+        strcat(f,"\n");
+        strcat(f,bowler);
+        strcat(f," bowled ");
+        strcat(f,overs);
+        strcat(f," overs and gave ");
+        strcat(f,nor);
+        strcat(f," runs taking ");
+        strcat(f,now);
+        strcat(f," wickets.");
+        fputs(f,fp);
+
+    }
+    //WINNING TEAM
+    printf("Enter Winning team: ");
+    char winteam[100];
+    scanf("%s",winteam);
+    printf("Enter Player of the match: ");
+    char pom[100];
+    scanf("%s",pom);
+    fputs("\nThe winning team is ",fp);
+    fputs(winteam,fp);
+    fputs("\nThe Player of the match is ",fp);
+    fputs(pom,fp);
+
+
+printf("\nFILE CONTENTS ARE SUCCESSFULLY CREATED\n");
+
+
+    fclose(fp);
+    }
+    return;
+
+
+
+}
+
+
+void viewscoresheet()
+{
+    FILE *fp1;
+    char fname1[20];
+    system("color 02");
+    printf("\nEnter the name of file to be opened: ");
+    scanf("%s",fname1);
+    sound1();
+
+    fp1=fopen(fname1,"r");
+    if(fp1==NULL)
+        printf("\nThe file name you have entered does not exist!");
+    else
+        {
+
+           printf("\nThe file contents are.......\n");
+           char d;
+           d=fgetc(fp1);
+           while(d!=EOF)
+           {
+               printf("%c",d);
+               d=fgetc(fp1);
+           }
+
+        }
+        fclose(fp1);
+   return;
+}
+
+int main()
+{
+      char ch='y';
+      int counter;
+
+
+      for(counter=1;ch=='y'||ch=='Y';counter++)
+      {
+      int choice;
+      system("color c0");
+      printf("\t\t\t\t   WELCOME TO THE CRICKET SCORE SHEET DATABASE.\n\tI am Pranav Kimothi (Database Head) of the BCCI. I will help you to access the records you need");
+      printf("\n\t\t\t\t\tConnecting to our Database");
+      sound();
+
+      printf("\nPress 1 to create a new scoresheet.\nPress Press 2 to view a scoresheet.\n");
+      scanf("%d",&choice);
+
+      switch(choice)
+      {
+
+         case 1: newscoresheet();  break;
+         case 2: viewscoresheet(); break;
+         default: printf("\nYou pressed the wrong key.\n");
+
+      }
+      fflush(stdin);
+
+      printf("\nPress y to go to database again: ");
+      scanf("%c",&ch);
+      printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+
+
+
+      }
+
+     return 0;
+
+}
